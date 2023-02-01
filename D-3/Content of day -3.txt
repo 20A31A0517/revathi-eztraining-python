@@ -1,0 +1,177 @@
+LIST:[]
+Lists are used to store multiple items in a single variable.
+Lists are created using square brackets.
+List items are ordered('it means that the items have a defined order, and that order will not change.
+If you add new items to a list, the new items will be placed at the end of the list.'), changeable, and allow duplicate values.
+List items are indexed, the first item has index [0], the second item has index [1] etc.
+
+LIST FUNNCTONS:
+append():add an element to the end of the list.-->l.append(4)
+extend():add all elements of a list to another list-->l.extend([5,6])
+insert():insert an item at the defined index-->l.insert(1,34)
+remove():remove an item from the list-->l.remove(34)
+pop():removes and returns an element at the given index-->l.pop(3)
+clear():removes all items from the list-->l.clear()
+index():returns the index of the first matched item-->l.index(1)
+count():returns the count of the number of items passed in an argumment-->l.count(3)  
+sort():sorts the list in ascending order-->l.sort()
+reverse():reverses the list -->l.reverse()
+copy():copies the list into another list-->l.copy()
+
+BASIC PROGRAMS ON LISTS:
+1)create a list with 10 items and print the elements one by one.
+2)create a list with 5 float numbers and find out sum & average.
+3)after creating a list with 6 elements from user and print even numbers.
+4)take a list from user input and print even numbers.
+5)take a list from user input and print product if the product is less than 750 else print sum.
+
+->Do neon number program.
+
+LIST COMPREHENSION:
+List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list.
+Syntax: newlist = [expression for item in iterable if condition == True]
+
+SET:{}
+Properties: Unordered,unchangeable,unindexed(so index is not there),mutable,no duplicate elements are allowed.
+Functions:
+add(): s.add(element)
+update():s.update([20,30])
+discard():s.discard(element)
+remove():s.remove(element)-->gives error if element is not present
+Ex1:
+s1={1,2,3},s2={4,5,1,2}
+
+Union:s1|s2 or s1.union(s2)
+Output:{1,2,3,4,5}
+
+Intersection:s1&s2 or s1.intersection(s2)
+Output:{1,2}
+
+Difference:s1-s2 or s1.difference(s2)
+Output:{3}
+
+Ex2:
+s={1,2,3},s2={1,2,3,4}
+
+Superset:s1.issuperset(s)
+Output:True
+
+Ex3: 
+s1={1,2,3,4,5,10},s2={4,1,9,2,10}
+Symmetric difference:s1^s2 or s1.symmetric_difference(s2)
+Output:{3,5,9}
+
+TUPLE:()
+Properties:Ordered,unchangeable,cant include items,can fetch elements using index
+Methods: count and index
+Ex:
+t=1,2,3
+t
+Output: (1, 2, 3)
+
+t=(1,2,3,"Hi")
+type(t)
+Output:<class 'tuple'>
+
+t.index(2)
+Output:1
+
+t.count(3)
+Output:1
+
+Nested tuple:
+Ex:
+t1=("hi","hello")
+t2=(1,2)
+t3=(t1,t2)
+t3
+Output:(('hi', 'hello'), (1, 2))
+
+DICTIONARY:
+Dictionary contains elements with 2 units --> keys&values and keys must be unique
+Properties:ordered and changeable. No duplicate members.
+Ex:
+d={1:"one",2:"two"}
+d
+Output:{1: 'one', 2: 'two'}
+
+type(d)
+Output:<class 'dict'>
+
+d.keys()
+Output:dict_keys([1, 2])
+
+d.values()
+Output:dict_values(['one', 'two'])
+
+d.items()
+Output:dict_items([(1, 'one'), (2, 'two')])
+
+d[1]
+Output:'one'
+
+d.get(2)
+Output:'two'
+
+l=["hi","hello"]
+dict.fromkeys(l)
+Output:{'hi': None, 'hello': None}
+
+dict.fromkeys(l,50)
+Output:{'hi': 50, 'hello': 50}
+
+{}.fromkeys(l,100)
+Output:{'hi': 100, 'hello': 100}
+
+l
+Output:['hi', 'hello']
+
+s=dict.fromkeys(l,20)
+s
+Output:{'hi': 20, 'hello': 20}
+
+Methods:
+items(): returns all pairs
+update(): add one or more items-->d.update({'c':89})
+pop():fetch and remove item
+popitem():fetch and remove recently added item
+setdefault():if the key is not in dic it will be added or nothing will be done-->d.setdefault('angel',300)
+Note: value is optional -->d.setdefault(2) is valid
+Ex:
+d
+Output:{1: 'one', 2: 'two'}
+
+d.items()
+Output:dict_items([(1, 'one'), (2, 'two')])
+
+d.update({'c':89})
+d
+Output:{1: 'one', 2: 'two', 'c': 89}
+
+d.pop(2)
+Output:'two'
+
+d
+Output:{1: 'one', 'c': 89}
+
+d.pop(89)
+Output:error
+
+d.popitem()
+Output:('c', 89)
+
+d
+Output:{1: 'one'}
+
+d.setdefault('angel',300)
+Output:300
+
+d
+Output:{1: 'one', 'angel': 300}
+
+d.setdefault(3,d)
+Output:{1: 'one', 'angel': 300, 3: {...}}
+
+d.setdefault(4)
+d
+Output:{1: 'one', 'angel': 300, 3: {...}, 4: None}

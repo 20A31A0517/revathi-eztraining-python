@@ -1,5 +1,5 @@
 #basic indexing functions using lists
-'''
+
 L=[1,3,62.4,'day',37]
 print(L)
 print(L[2])
@@ -9,7 +9,7 @@ print(L[0:])
 print(L[:5])
 print(L[-1])
 print(L[::-1])
-'''
+
 #basic list functions
 #-->append,extend,insert,remove,pop,clear,index,count,reverse,sort,copy,len
 l=[1,3,38.92,190,3,836,54,27]

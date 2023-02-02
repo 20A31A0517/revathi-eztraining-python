@@ -1,0 +1,114 @@
+#basic dict comprehension
+d={n:n*n for n in range(1,5)}
+print(d)
+output:
+{1: 1, 2: 4, 3: 9, 4: 16}
+
+#Calculating product price for 5 units  with membership operator(in)
+old={'rice':60,'daal':120,'oil':150}
+new={product:price*5 for (product,price) in old.items()}
+print(new)
+output:
+{'rice': 300, 'daal': 600, 'oil': 750}
+
+#With checks
+real={'sam':12,'angel':34,'kumar':45}
+now={name:age for (name,age) in real.items() if age>20}
+print(now)
+output:
+{'angel': 34, 'kumar': 45}
+
+#create  a list with 8 customer names and display a dictionary which has customer names along with discounts for them from a particular shop.
+import random
+cust=["sam","smith","satya","revathi","jaya","lakshmi","monish","suma"]
+cust_dict={names:random.randint(1,100) for names in cust}
+print(cust_dict)
+output:
+{'sam': 11, 'smith': 34, 'satya': 50, 'revathi': 59, 'jaya': 67, 'lakshmi': 36, 'monish': 25, 'suma': 19}
+
+#dict comprehension using the lists with zip function
+l1=['a','b','c']
+l2=[1,2,3]
+dic={a:b for (a,b) in zip(l1,l2)}
+print(dic)
+output:
+{'a': 1, 'b': 2, 'c': 3}
+
+#create 2 lists where 1st list should have 5 student names and 2nd list should have student marks
+#(student names ,marks(out of 500 -randomly),5 students(dictionary)) print with names and percentage
+
+import random
+stu_names=list(map(str,input("Enter student names:").split()))
+marks=[]
+for i in range(len(stu_names)):
+    a=(random.randint(300,500)/500)*100
+    marks.append(a)
+my_dict={x:y for (x,y) in zip(stu_names,marks)}
+print(my_dict)
+output:
+Enter student names: revathi satya jaya monish suma
+{'revathi': 67.0, 'satya': 67.60000000000001, 'jaya': 83.8, 'monish': 92.4, 'suma': 71.8}
+
+
+
+#get one string as input along with character find out and display whether the character is present or not.
+
+s1=input("String:")
+ch=input("Character:")
+if ch in s1:
+    print("Given character is present in the string")
+else:
+    print("Given character is not present in the string")
+Output:
+String:hello
+Character:o
+Given character is present in the string
+
+#check wheter the given string is palindrome or not.
+
+s=input("String:")
+s=s.lower()
+n=len(s)
+b=True
+for i in range(n):
+    if(s[i]==s[n-1]):
+        n-=1
+    else:
+        b=False
+        break
+if b==False:
+    print("Given string is not palindrome")
+else:
+    print("Given string is palindrome")
+Output:
+String:madam
+Given string is palindrome
+
+#check if the string contains space or not if yes count the no of spaces.
+
+s2=input("String:")
+count=0
+for i in range(len(s2)):
+    if s2[i]==" ":
+        count+=1
+if count==0:
+    print("There are no spaces present in the string")
+else:
+    print("There are ",count," of spaces present in the string")
+Output:
+String:today is a good day
+There are  4  of spaces present in the string
+
+#create a list as vowels and get a string as input and count vowels from the string and display it.
+
+s3=input("String:")
+l=['a','e','i','o','u','A','E','I','O','U']
+c=0
+for i in range(len(s3)):
+    for j in range(len(l)):
+        if l[j]==s3[i]:
+            c+=1
+print("No of vowels in string are:",c)
+Output:
+String:hello
+No of vowels in string are: 2

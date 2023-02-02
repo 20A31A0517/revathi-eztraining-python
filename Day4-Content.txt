@@ -1,0 +1,111 @@
+DICTIONARY COMPREHENSIONS:
+Python Dictionary Comprehension Example
+Here we have two lists named keys and value and we are iterating over them with the help of zip() function.
+# Python code to demonstrate dictionary comprehension
+# Lists to represent keys and values
+keys = ['a','b','c','d','e']
+values = [1,2,3,4,5]
+
+# but this line shows dict comprehension here
+myDict = { k:v for (k,v) in zip(keys, values)}
+
+# We can use below too
+# myDict = dict(zip(keys, values))
+
+print (myDict)
+ Output:
+{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
+
+STRINGS:
+ a string is a sequence of characters.We use single quotes or double quotes to represent a string in Python.
+Methods:
+upper():Converts string into upper case
+lower() or casefoldd() :Converts string into lower case
+capatilize():Converts the first character to upper case
+replace():Returns a string where a specified value is replaced with a specified value
+strip():Returns a trimmed version of the string
+split():Splits the string at the specified separator, and returns a list
+center():Returns a centered string
+count():Returns the number of times a specified value occurs in a string
+endswith():Returns true if the string ends with the specified value
+find():Searches the string for a specified value and returns the position of where it was found
+index():Searches the string for a specified value and returns the position of where it was found
+islower():Returns True if all characters in the string are lower case
+isupper():Returns True if all characters in the string are upper case
+istitle():Returns True if the string follows the rules of a title
+max():gives a letter in the order of a<b<c<...<z 
+min():gives a letter in the order of a>b>c>...>z
+rfind():Searches the string for a specified value and returns the last position of where it was found
+
+Programs:
+s="Hello"
+s.upper()-->'HELLO'
+s.lower() -->'hello'
+s.capitalize() -->'Hello'
+s.replace('o',' ') -->'Hell '
+s.endswith('o') -->True
+s.istitle()-->True
+s.islower()-->False
+s.isupper()-->False
+s.find('l')-->2
+s.find('e')-->1
+s.index('o')-->4
+s.rfind('l')-->3
+
+s="             Hello"
+s.strip()-->'Hello'
+s.center(30,' ')-->'               Hello          '
+s.count('l')-->2
+max('hello')-->'o'
+min('hello')-->'e'
+
+MUTABLE AND IMMUTABLE:
+Mutable data types are those, whose values can be modified even if they are created.
+Ex:List, Sets, and Dictionary.
+Immutable data types are those, whose values cannot be modified once they are created.
+Examples of immutable data types are int, str, bool, float, tuple.
+
+Ex:
+#int datatype is immutable. 
+r=20
+id(r)
+Output:
+2192537682768
+r=r*2
+id(r)
+Output:
+2192537683408
+
+#list datatype is mutable. 
+l=[1,2,3]
+id(l)
+2192578951552
+l.append(4)
+l
+[1, 2, 3, 4]
+id(l)
+2192578951552
+
+Programs on Strings:
+1)get one string as input along with character find out and display whether the character is present or not.
+2)check wheter the given string is palindrome or not.
+3)check if the string contains space or not if yes count the no of spaces.
+4)create a list as vowels and get a string as input and count vowels from the string and display it.
+
+MATH MODULE:
+some functions are ceil,floor,sqrt,factorial,pow,fmod,...
+Ex:
+import math
+math.ceil(12.5)-->13
+math.floor(12.5)-->12
+math.ceil(12.1)-->13
+math.floor(12.9)-->12
+math.sqrt(12)-->3.4641016151377544
+math.sqrt(144)-->12.0
+math.factorial(4)-->24
+math.pow(2,4)-->16.0
+math.fmod(10,2)-->0.0
+math.fmod(10,3)-->1.0
+a,b=divmod(10,3)
+a-->3
+b-->1

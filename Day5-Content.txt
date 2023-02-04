@@ -1,0 +1,113 @@
+RANDOM MODULE:
+Methods :
+sample-Returns a given sample of a sequence
+shuffle-Takes a sequence and returns the sequence in a random order
+choice-Returns a random element from the given sequence
+choices-Returns a list with a random selection from the given sequence
+random-Returns a random float number between 0 and 1
+randint-Returns a random number between the given range
+randrange-Returns a random number between the given range
+uniform-Returns a random float number between two given parameters
+,etc...
+Ex:
+import random as r
+x="i love sweets"
+print(r.sample(x,2))
+a=[1,2,3,4,5,6]
+r.shuffle(a)
+print(a)
+print(r.choice(a))
+y="welcome back"
+print(r.choice(y))
+print(r.random())
+print(r.randint(10,20))
+print(r.choices(a,k=10))
+print(r.choices(y,k=5))
+print(r.uniform(5,10))
+Output:
+['s', 'l']
+[2, 6, 3, 1, 5, 4]
+6
+c
+0.06506516488601055
+18
+[5, 3, 5, 2, 2, 4, 5, 2, 2, 1]
+['k', 'e', 'w', 'l', 'c']
+8.995146037495298
+
+#to find all the fuctions in the module
+z=dir(r)
+print(z)
+['BPF', 'LOG4', 'NV_MAGICCONST', 'RECIP_BPF', 'Random', 'SG_MAGICCONST', 'SystemRandom', 'TWOPI', '_ONE', '_Sequence',
+ '_Set', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_accumulate', 
+'_acos', '_bisect', '_ceil', '_cos', '_e', '_exp', '_floor', '_index', '_inst', '_isfinite', '_log', '_os', '_pi', '_random', '_repeat', '_sha512',
+ '_sin', '_sqrt', '_test', '_test_generator', '_urandom', '_warn', 'betavariate', 'choice', 'choices', 'expovariate', 'gammavariate', 
+'gauss', 'getrandbits', 'getstate', 'lognormvariate', 'normalvariate', 'paretovariate', 'randbytes', 'randint', 'random',
+ 'randrange', 'sample', 'seed', 'setstate', 'shuffle', 'triangular', 'uniform', 'vonmisesvariate', 'weibullvariate']
+
+CALENDER MODULE:
+Methods-calendar.calender(year),calendar.month(year,month),calendar.setfirstweekday(calendar.DAY),etc...
+
+DATETIME MODULE:
+Methods-
+
+FUNCTIONS:
+Classifications:
+1)predefined functions
+2)for code reusability
+Ex:
+Let's say we want to use a particular concept multiple times in our program instead of 
+writing the same code multiple times we can write it once include that inside a function
+and can call the function whenever we need it.
+
+Types:
+1)function without arugment and without return value
+2)function without arugment and with return value
+3)function with arugment and without return value
+4)function with arugment and with return value
+
+PROGRAMS ON FUNCTIONS:
+1)Lemons program using functions type 1
+2)Find factors of the given number using functions type 2
+3)Print multiplication table for the given number using functions type 3
+4)Find out sum of digits of given number using functions type 4
+
+RECURSION OR RECURSIVE METHOD:
+A function which calls itself is called recursive function.
+Ex:
+#Recursive function
+def display():
+    n=int(input("Number:"))
+    if n==1:
+        display()
+    else:
+        print("over")
+display()
+Output:
+Number:1
+Number:1
+Number:1
+Number:3
+over
+
+
+#Function with variable length argument.
+def sum(*a):
+    c=0
+    print(a)
+    for i in a:
+        c+=i
+        print(i)
+    print(c)
+sum(10,1,2,3,1,2)
+Output:
+(10, 1, 2, 3, 1, 2)
+10
+1
+2
+3
+1
+2
+19
+
+

@@ -212,7 +212,7 @@ while result!=1 and result!=4:
     result=happyno(result)
 if result==1:
     print(num," is a happy number")
-#in doing this process if number 4  or 20 or 42 or 145 occurs it will be repeated a lot times
+#in doing this process if number 4  or 145 occurs it will be repeated a lot times
 elif result==4:
     print(num," is not a happy number")
 Output:

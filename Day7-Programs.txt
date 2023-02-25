@@ -220,3 +220,92 @@ Enter a number:13
 13 is a happy number
 
 PROGRAMS ON ENCAPSULATION:
+#protected
+class encap:
+    _a=10
+    c=20
+    def encapfunction(self):
+        _b=230
+        print("Encap function accessing protected")
+        print(self._a+10)
+obj=encap()
+obj.encapfunction()
+print(obj._a)
+print(obj.c)
+Output:
+Encap function accessing protected
+20
+10
+20
+10
+
+#private
+class encap:
+    __a=10
+    print(__a)
+    def encapfunction(self):
+        print("Encap function")
+        print(self.__a)
+obj=encap()
+obj.encapfunction()
+print(obj.__a)
+Output:
+Encap function
+10
+Traceback (most recent call last):
+  File "C:/Users/LENOVO/Desktop/CRT/D-7/encapsulation.py", line 22, in <module>
+    print(obj.__a)
+AttributeError: 'encap' object has no attribute '__a'
+
+PROGRAMS ON POLYMORPHISM:
+#Method overloading
+class metoverload:
+    def display(self,a=None,b=None):
+        print(a,b)
+ob=metoverload()
+ob.display()
+ob.display(10,20)
+ob.display(20)
+Output:
+None None
+10 20
+20 None
+
+#Operator overloading
+class operoverload:
+    def display1(self,a,b):
+        print(a+b)
+ob=operoverload()
+ob.display1(10,20)
+ob.display1("2","0")
+Output:
+30
+20
+
+#Overriding
+class vijaywada:
+    def placename(self):
+        print("KLU")
+    def student(self):
+        print("Yes-vijaywada")
+    def year(self):
+        print("3rd year")
+class hyd:
+    def placename(self):
+        print("HYD-KLU")
+    def student(self):
+        print("Yes-hyd")
+    def year(self):
+        print("3rd year")
+ob1,ob2=vijaywada(),hyd()
+for details in (ob1,ob2):
+    details.placename()
+    details.student()
+    details.year()
+Output:
+KLU
+Yes-vijaywada
+3rd year
+HYD-KLU
+Yes-hyd
+3rd year

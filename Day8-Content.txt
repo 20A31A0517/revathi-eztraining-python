@@ -1,0 +1,44 @@
+DATA STRUCTURES:
+-helps to write efficient programs
+-Linear(Static(size can't be changed)->Array;Dynamic(size can be changed)-->Linked list,Stack,Queue,Matrix)-->storing data sequentially
+-Non linear(Binary tree,Heap,Sets,Hash table,Graph)-->no sequential style required
+- Special data structures-->List,Tuple,Dictionary
+Ex:graphs-->swiggy,zomato;queue-->videos,songs
+
+LINKED LIST:
+As the name says list of items which are linked with one another is called linked list. Ex:Train
+A linked list is represented by a pointer to the first node of the linked list.
+ The first node is called the head. If the linked list is empty, then the value of the head is NULL. 
+Each node in a list consists of at least two parts:
+Data
+Pointer (Or Reference) to the next node
+Types:
+1)SinglyLL
+2)DoublyLL
+3)CircularLL
+
+SINGLE LINKED LIST:
+	+----+------+     +----+------+     +----+------+
+HEAD-->	data | address->data | address->data | address  -->NULL
+	+----+------+     +----+------+     +----+------+
+ 	Node1	            Node2	Node3
+
+CREATING LINKED LIST:
+Create node and partirion the node with 2 segements as data and none
+Add value into blank node 
+Mark the node as head
+Create the next node by following the above steps 
+Establish link b/w 1st and 2nd node
+
+DISPLAY LINKED LIST:
+Traversal is required from 1st node to tail node in order to display existing linked list.
+
+OPERATIONS ON SLL:
+1)Insert
+	a.begining 	b.end	    c.position
+2)Delete
+3)Search
+
+
+
+

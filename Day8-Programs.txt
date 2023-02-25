@@ -1,0 +1,208 @@
+#Single Linked List
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class singleLL:
+    def __init__(self):
+        self.head=None
+
+    def display(self):
+        if self.head is None:
+            print("Linked list is empty")
+        else:
+            temp=self.head #temp=1st node
+            while temp:
+                print(temp.data,"->",end="")
+                temp=temp.next
+ob=singleLL()
+n=Node(10)
+ob.head=n
+n1=Node(20)
+ob.head.next=n1
+n2=Node(30)
+n1.next=n2
+ob.display()
+Output:
+10 ->20 ->30 ->
+
+#WINNER
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class singleLL:
+    def __init__(self):
+        self.head=None
+
+    def display(self):
+        if self.head is None:
+            print("Linked list is empty")
+        else:
+            temp=self.head #temp=1st node
+            while temp:
+                print(temp.data,"->",end="")
+                temp=temp.next
+ob=singleLL()
+n=Node("W")
+ob.head=n
+n1=Node("I")
+ob.head.next=n1
+n2=Node("N")
+n1.next=n2
+n3=Node("N")
+n2.next=n3
+n4=Node("N")
+n3.next=n4
+n5=Node("E")
+n4.next=n5
+n6=Node("R")
+n5.next=n6
+ob.display()
+Output:
+W ->I ->N ->N ->N ->E ->R ->
+
+#Inserting at the Beginning
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class SLL:
+    def __init__(self):
+        self.head=None
+    def display(self):
+        if self.head is None:
+            print("Linked list is empty")
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,"->",end="")
+                temp=temp.next
+    def atBegining(self,newnode):
+        newnode=Node(newnode)
+        newnode.next=self.head
+        self.head=newnode
+ob=SLL()
+n=Node(10)
+ob.head=n
+n1=Node(20)
+ob.head.next=n1
+n2=Node(30)
+n1.next=n2
+ob.atBegining(5)
+ob.display()
+Output:
+5 ->10 ->20 ->30 ->
+
+#Inserting at the end
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class SLL:
+    def __init__(self):
+        self.head=None
+    def display(self):
+        if self.head is None:
+            print("Linked list is empty")
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,"->",end="")
+                temp=temp.next
+    def atEnd(self,newnode):
+        newnode=Node(newnode)
+        last=self.head
+        if self.head is None:
+            self.head=newnode
+            return
+        while last.next:
+            last=last.next
+        last.next=newnode
+ob=SLL()
+n=Node(10)
+ob.head=n
+n1=Node(20)
+ob.head.next=n1
+n2=Node(30)
+n1.next=n2
+
+ob.atEnd(5)
+ob.display()
+Output:
+10 ->20 ->30 ->5 ->
+
+#Inserting in b/w the 2 nodes
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class SLL:
+    def __init__(self):
+        self.head=None
+    def display(self):
+        if self.head is None:
+            print("Linked list is empty")
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,"->",end="")
+                temp=temp.next
+    def inBetween(self,pos,newdata):
+        newdata=Node(newdata)
+        temp=self.head
+        for i in range(pos-1):
+            temp=temp.next
+        newdata.next=temp.next
+        temp.next=newdata
+        
+ob=SLL()
+n=Node(10)
+ob.head=n
+n1=Node(20)
+ob.head.next=n1
+n2=Node(30)
+n1.next=n2
+
+ob.inBetween(2,25)
+ob.display()
+Output:
+10 ->20 ->25 ->30 ->
+
+#SLL with user input
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class SLL:
+    def __init__(self):
+        self.head=None
+        self.lastnode=None
+    def append(self,data):
+        if self.lastnode is None:
+            self.head=Node(data)
+            self.lastnode=self.head
+        else:
+            self.lastnode.next=Node(data)
+            self.lastnode=self.lastnode.next
+    def display(self):
+        temp=self.head
+        while temp is not None:
+            print(temp.data,end=" ")
+            temp=temp.next
+ob=SLL()
+n=int(input("No of elements:"))
+for i in range(n):
+    data=int(input("Enter the elements:"))
+    ob.append(data)
+print("Linked list : ",end=" ")
+ob.display()
+Output:
+No of elements:
+5
+Enter the elements:3
+Enter the elements:4
+Enter the elements:5
+Enter the elements:6
+Enter the elements:7
+Linked list :  3 4 5 6 7 

@@ -1,0 +1,325 @@
+#Program of single linked list using insertion and deletion operation
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Linkedlist:
+    def __init__(self):
+        self.head=None
+    def display(self):
+        temp=self.head
+        if not temp:
+            print("List is empty")
+            return
+        else:
+            print("Start:",end=' ')
+        while temp:
+            print(temp.data,end=" -> ")
+            temp=temp.next
+        print("end.")
+    def insert(self,data):
+        newnode=Node(data)
+        #If the Linked list is empty
+        if self.head is None:
+            self.head=newnode
+        #If the data is smaller than the head
+        elif self.head.data>=newnode.data:
+            newnode.next=self.head
+            self.head=newnode
+        #Locate the node before the insertion point
+        else:
+            current=self.head
+            while current.next and newnode.data>current.next.data:
+                current=current.next
+                #insertion
+            newnode.next=current.next
+            current.next=newnode
+    def delete(self,key):
+        #If the list is empty
+        if self.head is None:
+            print("Deletion Error: The list is empty")
+            return
+        #If the key is head
+        if self.head.data==key:
+            self.head=self.head.next
+            return
+        #Find poistion of the first occurence of the
+        current=self.head
+        while current:
+            if current.data==key:
+                break
+            previous=current
+            current=current.next
+        #If the key is not found
+        if current is None:
+            print("Deletion Error: Key not found")
+        else:
+            previous.next=current.next
+#__name is python specialvariable
+if __name__=='__main__':
+    #Create an object
+    LL=Linkedlist()
+    print('')
+    #insert some nodes
+    LL.insert(10)
+    LL.insert(12)
+    LL.insert(8)
+    LL.insert(11)
+    LL.insert(10)
+    LL.display()
+    LL.delete(12)
+    LL.delete(8)
+    LL.delete(10)
+    LL.display()
+    
+Output:
+Start: 8 -> 10 -> 10 -> 11 -> 12 -> end.
+Start: 10 -> 11 -> end.
+#Program using user defined modules
+
+#FILE NAME:function programs 
+#Function with variable length argument.
+def sum(*a):
+    c=0
+    print(a)
+    for i in a:
+        c+=i
+        print(i)
+    print(c)
+sum(10,1,2,3,1,2)
+Output:
+(10, 1, 2, 3, 1, 2)
+10
+1
+2
+3
+1
+2
+19
+#Program using user defined modules
+import functionprograms
+functionprograms.sum(10,1,2,3,1)
+print(__name__)
+Output:
+(10, 1, 2, 3, 1, 2)
+10
+1
+2
+3
+1
+2
+19
+(10, 1, 2, 3, 1)
+10
+1
+2
+3
+1
+17
+__main__
+
+
+print("before function")
+def f1():
+    print("f1")
+def f2():
+    print("f2")
+def f3():
+    print("f3")
+if __name__=='__main__':
+    f1()
+    f2()
+    f3()
+    print("name:",__name__)
+Output:
+before function
+f1
+f2
+f3
+name: __main__
+
+#Program of double linked list creation
+#create node
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.previous=None
+        self.next=None
+class DLL:
+    def __init__(self):
+        self.head=None
+    def display(self):
+        if self.head is None:
+            print("Linked list is empty")
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,end="<->")
+                temp=temp.next
+l=DLL()
+n1=Node(100)
+l.head=n1
+n2=Node(200)
+n2.prev=n1
+n1.next=n2
+l.display()
+Output:
+100<->200<->
+
+#Program of double linked list insertion at start
+#create node
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.previous=None
+        self.next=None
+class DLL:
+    def __init__(self):
+        self.head=None
+    def insert_start(self):
+        n=Node(300)
+        temp=self.head
+        temp.prev=n
+        n.next=temp
+        self.head=n
+    def display(self):
+        if self.head is None:
+            print("Linked list is empty")
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,end="<->")
+                temp=temp.next
+l=DLL()
+n1=Node(100)
+l.head=n1
+n2=Node(200)
+n2.prev=n1
+n1.next=n2
+l.insert_start()
+l.display()
+Output:
+300<->100<->200<->
+#Program of double linked list insertion at end
+#create node
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.previous=None
+        self.next=None
+class DLL:
+    def __init__(self):
+        self.head=None
+    def insert_end(self):
+        n=Node(300)
+        temp=self.head
+        while temp.next is not None:
+            temp=temp.next
+        temp.next=n
+        n.prev=temp 
+    def display(self):
+        if self.head is None:
+            print("Linked list is empty")
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,end="<->")
+                temp=temp.next
+l=DLL()
+n1=Node(100)
+l.head=n1
+n2=Node(200)
+n2.prev=n1
+n1.next=n2
+l.insert_end()
+l.display()
+Output:
+100<->200<->300<->
+
+#Program of double linked list insertion in between two nodes
+#create node
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.previous=None
+        self.next=None
+class DLL:
+    def __init__(self):
+        self.head=None
+    def insert_pos(self,pos):
+        n=Node(300)
+        temp=self.head
+        for i in range(1,pos-1):
+            temp=temp.next
+        n.prev=temp
+        n.next=temp.next
+        temp.next.prev=n
+        temp.next=n
+    def display(self):
+        if self.head is None:
+            print("Linked list is empty")
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,end="<->")
+                temp=temp.next
+l=DLL()
+n1=Node(100)
+l.head=n1
+n2=Node(200)
+n2.prev=n1
+n1.next=n2
+l.insert_pos(0)
+l.display()
+Output:
+100<->300<->200<->
+
+#Program of creation of circular linked list
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Createlist:
+    def __init__(self):
+        self.head=Node(None)
+        self.tail=Node(None)
+        self.head.next=self.tail
+        self.tail.next=self.head
+    def add(self,data):
+        newnode=Node(data)
+        if self.head.data is None:
+            self.head=newnode
+            self.tail=newnode
+            newnode.next=self.head
+        else:
+            self.tail.next=newnode
+            self.tail=newnode
+            self.tail.next=self.head
+    def display(self):
+        temp=self.head
+        if self.head is None:
+            print("Linked list is empty")
+            return
+        else:
+            print("Nodes of the circular linked list:")
+            print(temp.data,"->")
+            while(temp.next!=self.head):
+                temp=temp.next
+                print(temp.data,"->")
+class Circularlist:
+    c=Createlist()
+    c.add("S")
+    c.add("M")
+    c.add("I")
+    c.add("L")
+    c.add("E")
+    c.display()
+Output:
+Nodes of the circular linked list:
+S ->
+M ->
+I ->
+L ->
+E ->
+
+    

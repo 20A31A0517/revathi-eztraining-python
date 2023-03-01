@@ -1,0 +1,402 @@
+#Stack implementation using the arrays or list
+#Stack follows LIFO-->Last In First Out
+stack=[]
+def push():
+    element=int(input("Enter the element"))
+    stack.append(element)
+    print(stack)
+
+def pop_element():
+    if not stack:
+        print("Stack is empty")
+    else:
+        e=stack.pop()
+        print("Removed element is ",e)
+        print(stack)
+while True:
+    print("Select operation 1.push 2.pop 3.quit")
+    choice=int(input())
+    if choice==1:
+        push()
+    elif choice==2:
+        pop_element()
+    elif choice==3:
+        break
+    else:
+        print("Enter the correct operation")
+Output:
+Select operation 1.push 2.pop 3.quit
+1
+Enter the element1
+[1]
+Select operation 1.push 2.pop 3.quit
+1
+Enter the element2
+[1, 2]
+Select operation 1.push 2.pop 3.quit
+1
+Enter the element3
+[1, 2, 3]
+Select operation 1.push 2.pop 3.quit
+1
+Enter the element4
+[1, 2, 3, 4]
+Select operation 1.push 2.pop 3.quit
+2
+Removed element is  4
+[1, 2, 3]
+Select operation 1.push 2.pop 3.quit
+2
+Removed element is  3
+[1, 2]
+Select operation 1.push 2.pop 3.quit
+2
+Removed element is  2
+[1]
+Select operation 1.push 2.pop 3.quit
+2
+Removed element is  1
+[]
+Select operation 1.push 2.pop 3.quit
+2
+Stack is empty
+Select operation 1.push 2.pop 3.quit
+1
+Enter the element1
+[1]
+Select operation 1.push 2.pop 3.quit
+3    
+
+#Stack implementation using the linked list
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Stack:
+    def __init__(self):
+        self.head=None
+    def isempty(self):
+        if self.head==None:
+            return True
+        else:
+            return False
+    def push(self,data):
+        if self.head is None:
+            self.head=Node(data)
+        else:
+            newnode=Node(data)
+            newnode.next=self.head
+            self.head=newnode
+    def pop(self):
+        if self.isempty():
+            return None
+        else:
+            poppednode=self.head
+            self.head=self.head.next
+            poppednode.next=None
+            return poppednode.data
+    def peak(self):
+        if self.isempty():
+            return None
+        else:
+            return self.head.data
+    def display(self):
+        if self.isempty():
+            print("Stack is empty or underflowed")
+        else:
+            temp=self.head
+            while temp:
+                print(temp.data,end="")
+                temp=temp.next
+                if temp!=None:
+                    print(" -> ",end="")
+if __name__=='__main__':
+    s=Stack()
+    s.push(1)
+    s.push(2)
+    s.push(3)
+    s.push(4)
+    s.push(5)
+    s.display()
+    print()
+    print("Top element is ",s.peak())
+    s.pop()
+    s.pop()
+    s.pop()
+    s.display()
+    print()
+    print("Top element is ",s.peak())
+Output:
+5 -> 4 -> 3 -> 2 -> 1
+Top element is  5
+2 -> 1
+Top element is  2
+
+#Vaild parantheses using Stack
+s=input()
+stack=[]
+balanced=True
+for char in s:
+    if(char=='(' or char=='[' or char=='{'):
+        stack.append(char)
+    elif(char==')'):
+        if (len(stack) and stack.pop()!='('):
+            balanced=False
+            break
+    elif(char==']'):
+        if (len(stack) and stack.pop()!='['):
+            balanced=False
+            break
+    elif(char=='}'):
+        if (len(stack) and stack.pop()!='{'):
+            balanced=False
+            break
+    else:
+        balanced=False
+        break
+if len(stack)>0 or balanced == False:
+    print("Unbalanced")
+else:
+    print("Balanced")
+Output:
+([]{()})
+Balanced
+(([)])
+Unbalanced
+([])
+Balanced
+
+#Queue follows FIFO-->First In First Out
+#queue implementation using arrays or lists
+queue=[]
+def enqueue():
+    element=int(input("Enter the element"))
+    queue.append(element)
+    print(element," is added to queue")
+def dequeue():
+    if not queue:
+        print("Queue is empty")
+    else:
+        e=queue.pop(0)
+        print("Removed element is ",e)
+def display():
+    print(queue)
+while True:
+    print("Select operation 1.push 2.pop 3.show 4.quit")
+    choice=int(input())
+    if choice==1:
+        enqueue()
+    elif choice==2:
+        dequeue()
+    elif choice==3:
+        display()
+    elif choice==4:
+        break
+    else:
+        print("Enter the correct operation")
+Output:
+Select operation 1.push 2.pop 3.show 4.quit
+1
+Enter the element1
+1  is added to queue
+Select operation 1.push 2.pop 3.show 4.quit
+1
+Enter the element2
+2  is added to queue
+Select operation 1.push 2.pop 3.show 4.quit
+1
+Enter the element3
+3  is added to queue
+Select operation 1.push 2.pop 3.show 4.quit
+1
+Enter the element4
+4  is added to queue
+Select operation 1.push 2.pop 3.show 4.quit
+1
+Enter the element4
+4  is added to queue
+Select operation 1.push 2.pop 3.show 4.quit
+2
+Removed element is  1
+Select operation 1.push 2.pop 3.show 4.quit
+2
+Removed element is  2
+Select operation 1.push 2.pop 3.show 4.quit
+2
+Removed element is  3
+Select operation 1.push 2.pop 3.show 4.quit
+2
+Removed element is  4
+Select operation 1.push 2.pop 3.show 4.quit
+3
+[4]
+Select operation 1.push 2.pop 3.show 4.quit
+4
+
+#Queue module implementing stack(put,get,empty)
+from queue import LifoQueue
+s=LifoQueue(maxsize=3)
+print(s.qsize())
+s.put('a')
+s.put('b')
+s.put('c')
+print(s.full())
+print(s.qsize())
+print(s.get())
+print(s.get())
+print(s.get())
+print(s.qsize())
+print(s.empty())
+Output:
+0
+True
+3
+c
+b
+a
+0
+True
+
+#Queue module(put,get,empty)
+import queue
+L=queue.Queue(maxsize=5)
+L.put(10)
+L.put(20)
+print(L.get())
+print(L.get())
+Output:
+10
+20
+
+#Queue follows FIFO-->First In First Out
+#queue implementation using linked lists
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Queue:
+    def __init__(self):
+        self.head=None
+        self.last=None
+    def enqueue(self,data):
+        if self.last is None:
+            self.head=Node(data)
+            self.last=self.head
+        else:
+            self.last.next=Node(data)
+            self.last=self.last.next
+    def dequeue(self):
+        if self.head is None:
+            return None
+        else:
+            to_return=self.head.data
+            self.head=self.head.next
+            return to_return
+a_queue=Queue()
+while True:
+    print("Choose one from below options")
+    print("enqueue <value>")
+    print("dequeue")
+    print("quit")
+    do =input("What would you like to do? ").split()
+    operation=do[0].strip().lower()
+    if operation=='enqueue':
+        a_queue.enqueue(int(do[1]))
+    elif operation=='dequeue':
+        dequeued=a_queue.dequeue()
+        if dequeued is None:
+            print("Queue is empty")
+        else:
+            print("Dequeued element: ",int(dequeued))
+    elif operation=='quit':
+        break
+Output:
+Choose one from below options
+enqueue <value>
+dequeue
+quit
+What would you like to do? enqueue 300
+Choose one from below options
+enqueue <value>
+dequeue
+quit
+What would you like to do? enqueue 400
+Choose one from below options
+enqueue <value>
+dequeue
+quit
+What would you like to do? enqueue 500
+Choose one from below options
+enqueue <value>
+dequeue
+quit
+What would you like to do? dequeue
+Dequeued element:  300
+Choose one from below options
+enqueue <value>
+dequeue
+quit
+What would you like to do? dequeue
+Dequeued element:  400
+Choose one from below options
+enqueue <value>
+dequeue
+quit
+What would you like to do? quit
+
+#LINKED LIST WITH DUPLICATES
+#Logic:first element will be compared with rest
+#then second will be compared with rest all goes maintain 2 pointers and move
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Linkedlist:
+    def __init__(self):
+        self.head=None
+        self.last=None
+    def append(self,data):
+        if self.last is None:
+            self.head=Node(data)
+            self.last=self.head
+        else:
+            self.last.next=Node(data)
+            self.last=self.last.next
+    def get_prev_node(self,ref_node):
+        curr=self.head
+        while (curr and curr.next != ref_node):
+            curr=curr.next
+        return curr
+    def remove(self,node):
+        prev_node=self.get_prev_node(node)
+        if prev_node is None:
+            self.head=self.head.next
+        else:
+            prev_node.next=node.next
+    def display(self):
+        curr=self.head
+        while curr:
+            print(curr.data,end=" ")
+            curr=curr.next
+def remove_duplicates(llist):
+    curr1=llist.head
+    while curr1:
+        data=curr1.data
+        curr2=curr1.next
+        while curr2:
+            if curr2.data==data:
+                llist.remove(curr2)
+            curr2=curr2.next
+        curr1=curr1.next
+a_list=Linkedlist()
+data_list=input("Please enter the elements in the ").split()
+for data in data_list:
+    a_list.append(int(data))
+remove_duplicates(a_list)
+print("The list with duplicates removed: ")
+a_list.display()
+Output:
+Please enter the elements in the 1 1 2 3 2 2 3 4 4 4
+The list with duplicates removed: 
+1 2 3 4
